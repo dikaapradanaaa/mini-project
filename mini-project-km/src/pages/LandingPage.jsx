@@ -34,6 +34,22 @@ const LandingPage = () => {
       </Carousel.Item>
       
     </Carousel>
+    <Carousel>
+      <Carousel.Item className='crsl-itm text-center'>
+        <h2>BRI Liga 1</h2>
+        <h2>MATCHDAY 12</h2>
+        <h4>31 November 2023
+          <br />
+          18.30 WIB
+        </h4>
+        <div className='p-5'>
+          <img src={PSS} height="60" alt="" />
+          <span className='fw-bold fs-4 p-5'>VS</span>
+          <img src={PSS} height="60" alt="" />
+        </div>
+      </Carousel.Item>
+      
+    </Carousel>
             </Col>
             <Col>
             <h3 className='text-center'>Standings</h3>
@@ -55,14 +71,15 @@ const LandingPage = () => {
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <td>PSS Sleman</td>
+      <td>20</td>
+      <td>9</td>
     </tr>
     <tr>
       <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td>PSS Sleman</td>
+      <td>15</td>
+      <td>9</td>
     </tr>
               </tbody>
             </Table>
