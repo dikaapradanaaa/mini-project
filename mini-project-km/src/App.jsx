@@ -14,7 +14,6 @@ import Add from "./pages/Admin/Add";
 import Update from "./pages/Admin/Update";
 import ErrorPage from "./pages/Error";
 import Protect from './Protect/ProtectUser';
-import FaqTest from './pages/FAQ'
 
 function App() {
 
@@ -29,7 +28,6 @@ function App() {
           <Route path='/news' element={<NewsPage/>}/>
           <Route path='/players' element={<PlayersPage/>}/>
           <Route path='/faq' element={<FaqPage/>}/>
-          <Route path='/faq-test' element={<FaqTest/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route 
             path='/buy-ticket' 
