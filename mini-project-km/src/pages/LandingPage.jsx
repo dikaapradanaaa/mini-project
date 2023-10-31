@@ -32,9 +32,6 @@ const LandingPage = () => {
           <img src={PSS} height="60" alt="" />
         </div>
       </Carousel.Item>
-      
-    </Carousel>
-    <Carousel>
       <Carousel.Item className='crsl-itm text-center'>
         <h2>BRI Liga 1</h2>
         <h2>MATCHDAY 12</h2>
