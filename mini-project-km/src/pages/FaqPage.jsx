@@ -1,27 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Accordion, Container, Button, Form } from 'react-bootstrap';
 import { BiSearchAlt } from 'react-icons/bi';
 import { OpenAIApi, Configuration } from 'openai';
+import axios from 'axios';
 
-const apiKey = import.meta.env.APIKEY_OpenAI;
-const configuration = new Configuration({ apiKey });
+const configuration = new Configuration({
+  apiKey: import.meta.env.APIKEY_OpenAI,
+  dangerouslyAllowBrowser: true,
+});
+
 const openai = new OpenAIApi(configuration);
-function Faq () {
+function Faq() {
 
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const [results, setResults] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try{
+      const headers = {
+        'User-Agent': 'uaheader',
+        
+      };
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: input,
+      prompt: prompt,
       max_tokens: 200,
     });
+    setResults(response.data.choices[0].text);
+  } catch (error){
+    console.log(error);
+  }
+};
 
-    setOutput(response.data.choices[0].text);
-  };
-
+  
   return (
     <div className='faq'>
       <Container> 
@@ -86,19 +98,17 @@ function Faq () {
     <Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
         <h3>Pertanyaan Anda ?</h3>
         <Form.Control as="textarea"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
         rows={3} />
+         <Button className='mb-5' size="lg" type='submit' variant="light"><BiSearchAlt/></Button>
       </Form.Group>
-      <Button className='mb-5' size="lg" type='submit' variant="light"><BiSearchAlt/></Button>
+      
     </Form>
-    
     <h3 className=''>Jawaban Anda</h3>
     <div className='output bg-white'>
-        <p id='outputData'>{output}</p>
+      <p>{results}</p>
       </div>
-      
-    
         
       
       
