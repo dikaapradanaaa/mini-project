@@ -3,7 +3,7 @@ import { Accordion, Container, Button, Form } from 'react-bootstrap';
 import { BiSearchAlt } from 'react-icons/bi';
 import { OpenAIApi, Configuration } from 'openai';
 
-const apiKey = "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";
+const apiKey = import.meta.env.APIKEY_OpenAI;
 const configuration = new Configuration({ apiKey });
 const openai = new OpenAIApi(configuration);
 function Faq () {
